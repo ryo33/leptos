@@ -84,7 +84,7 @@ where
         ),
         Error,
     > {
-        #[cfg(not(feature = "axum"))]
+        #[cfg(any(not(feature = "axum"), not(feature = "ws")))]
         {
             Err::<
                 (
@@ -103,7 +103,7 @@ where
                 ),
             ))
         }
-        #[cfg(feature = "axum")]
+        #[cfg(all(feature = "axum", feature = "ws"))]
         {
             use axum::extract::{ws::Message, FromRequest};
             use futures::FutureExt;

@@ -106,7 +106,7 @@ axum-no-default = [
 ]
 form-redirects = []
 actix = ["ssr", "dep:actix-web", "dep:actix-ws", "dep:send_wrapper"]
-axum = ["axum/default", "axum-no-default", "axum/ws", "dep:tokio"]
+axum = ["axum/default", "axum-no-default", "dep:tokio"]
 browser = [
   "dep:gloo-net",
   "dep:js-sys",
@@ -124,9 +124,10 @@ msgpack = ["dep:rmp-serde"]
 postcard = ["dep:postcard"]
 default-tls = ["reqwest?/default-tls"]
 rustls = ["reqwest?/rustls-tls", "tokio-tungstenite?/rustls"]
-reqwest = ["dep:reqwest", "dep:tokio-tungstenite", "dep:tokio"]
+reqwest = ["dep:reqwest"]
 ssr = ["inventory"]
 generic = []
+ws = ["dep:tokio-tungstenite", "dep:tokio", "axum/ws"]
 
 [package.metadata.docs.rs]
 all-features = true
